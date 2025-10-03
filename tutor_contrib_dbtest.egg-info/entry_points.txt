@@ -1,0 +1,5 @@
+[cms.djangoapp]
+dbui = tutorcontrib.dbtest.djangoapps.dbui.apps:DbuiConfig
+
+[lms.djangoapp]
+dbui = tutorcontrib.dbtest.djangoapps.dbui.apps:DbuiConfig

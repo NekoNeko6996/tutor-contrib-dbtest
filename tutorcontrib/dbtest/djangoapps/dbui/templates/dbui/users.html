@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DB Test Users</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 24px; }
+    table { border-collapse: collapse; width: 520px; }
+    th, td { border: 1px solid #ddd; padding: 8px 10px; }
+    th { background: #f6f6f6; text-align: left; }
+    caption { text-align: left; font-weight: 700; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <table>
+    <caption>10 users đầu tiên</caption>
+    <thead><tr><th>ID</th><th>Username</th><th>Active?</th></tr></thead>
+    <tbody>
+    {% for u in users %}
+      <tr><td>{{ u.id }}</td><td>{{ u.username }}</td><td>{{ u.is_active }}</td></tr>
+    {% empty %}
+      <tr><td colspan="3">Không có dữ liệu</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p>API JSON: <code>/api/dbtest/users</code></p>
+</body>
+</html>

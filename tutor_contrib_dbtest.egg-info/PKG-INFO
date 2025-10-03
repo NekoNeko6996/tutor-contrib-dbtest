@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: tutor-contrib-dbtest
+Version: 0.1.0
+Summary: Tutor plugin with LMS UI
+Requires-Python: >=3.8
