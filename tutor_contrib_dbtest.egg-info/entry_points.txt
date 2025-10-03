@@ -3,3 +3,6 @@ dbui = tutorcontrib.dbtest.djangoapps.dbui.apps:DbuiConfig
 
 [lms.djangoapp]
 dbui = tutorcontrib.dbtest.djangoapps.dbui.apps:DbuiConfig
+
+[tutor.plugin.v1]
+dbtest = tutorcontrib.dbtest.plugin

@@ -1,3 +1,4 @@
+from pathlib import Path
 from tutor import hooks
 
 DBTEST_SERVICE = r"""
@@ -16,10 +17,12 @@ dbtest:
     - default
 """
 
-# Chèn service vào compose cho DEV và LOCAL
-hooks.Filters.ENV_PATCHES.add_item(
-    ("local-docker-compose-dev-services", DBTEST_SERVICE)
-)
-hooks.Filters.ENV_PATCHES.add_item(
-    ("local-docker-compose-services", DBTEST_SERVICE)
-)
+# if you ship template files:
+hooks.Filters.ENV_TEMPLATE_ROOTS.add_item(Path(__file__).parent / "templates")
+
+# ✅ add the dbtest service to both dev & local compose files
+hooks.Filters.ENV_PATCHES.add_item(("dev-docker-compose-services", DBTEST_SERVICE))
+hooks.Filters.ENV_PATCHES.add_item(("local-docker-compose-services", DBTEST_SERVICE))
+
+# (optional) prove plugin loads by annotating caddy config
+hooks.Filters.ENV_PATCHES.add_item(("caddyfile-global", "# dbtest plugin loaded\n"))
