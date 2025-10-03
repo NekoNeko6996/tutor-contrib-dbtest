@@ -17,6 +17,9 @@ packages = { find = { include = ["tutorcontrib*"] } }
 "tutorcontrib.dbtest" = ["templates/**/*"]
 "tutorcontrib.dbtest.djangoapps.dbui" = ["templates/**/*"]
 
+[project.entry-points."tutor.plugin.v1"]
+dbtest = "tutorcontrib.dbtest.plugin"
+
 [project.entry-points."lms.djangoapp"]
 dbui = "tutorcontrib.dbtest.djangoapps.dbui.apps:DbuiConfig"
 
